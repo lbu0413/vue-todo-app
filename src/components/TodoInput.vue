@@ -16,8 +16,11 @@ export default {
     },
     methods: {
         addTodo: function() {
-            localStorage.setItem(this.newTodoItem, this.newTodoItem);
-            this.clearInput();
+            if(this.newTodoItem !== '') {
+                let obj = {completed: false, item: this.newTodoItem};
+                localStorage.setItem(this.newTodoItem, JSON.stringify(obj));
+                this.clearInput();
+            }
         },
         clearInput: function() {
             this.newTodoItem = '';
@@ -32,8 +35,6 @@ export default {
     }
     .inputBox {
         background: white;
-        width: 70%;
-        margin: 0 auto;
         height: 50px;
         line-height: 50px;
         border-radius: 5px;

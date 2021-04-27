@@ -27,6 +27,9 @@ export default {
 </script>
 
 <style>
+  * {
+    font-family: 'Ubuntu', sans-serif;
+  }
   body{
     text-align: center;
     background-color: #f6f6f6;

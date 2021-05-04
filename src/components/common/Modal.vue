@@ -14,9 +14,7 @@
                       </slot>
                   </div>
                   <div class="modal-footer">
-                          <button class="modal-default-button" @click="$emit('close')">
-                              close
-                          </button>
+                     <i class="fas fa-times" @click="$emit('close')"></i>
                   </div>
               </div>
           </div>
@@ -93,5 +91,10 @@
     .modal-leave-active .modal-container {
         -webkit-transform: scale(1.1);
         transform: scale(1.1);
+    }
+
+    .fas {
+        color: #42b983;
+        font-size: 1.5rem;
     }
 </style>

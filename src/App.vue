@@ -3,7 +3,7 @@
     <TodoHeader></TodoHeader>
     <TodoInput v-on:addTodoItem="addOneItem"></TodoInput>
     <TodoList 
-      v-bind:propsdata="todoItems" 
+      :propsdata="todoItems" 
       v-on:removeItem="removeOneItem" 
       v-on:toggleItem="toggleOneItem">
     </TodoList>
@@ -26,22 +26,22 @@ export default {
     }
   },
   methods: {
-    addOneItem: function(todoItem) {
+    addOneItem(todoItem) {
       let obj = {completed: false, item: todoItem};
       localStorage.setItem(todoItem, JSON.stringify(obj));
       this.todoItems.push(obj);
     },
-    removeOneItem: function(todoItem, index) {
+    removeOneItem(todoItem, index) {
       localStorage.removeItem(todoItem.item);
       this.todoItems.splice(index, 1);
     },
-    toggleOneItem: function(todoItem, index) {
+    toggleOneItem(todoItem, index) {
       // todoItem.completed = !todoItem.completed;
       this.todoItems[index].completed = !this.todoItems[index].completed
       localStorage.removeItem(todoItem.item);
       localStorage.setItem(todoItem.item, JSON.stringify(todoItem));
     },
-    clearAllItems: function() {
+    clearAllItems() {
       localStorage.clear();
       this.todoItems = [];
     }
@@ -60,7 +60,6 @@ export default {
     'TodoInput': TodoInput,
     'TodoList': TodoList,
     'TodoFooter': TodoFooter,
-
   }
 }
 </script>

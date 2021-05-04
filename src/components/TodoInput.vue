@@ -1,7 +1,11 @@
 <template>
   <div class="inputBox shadow">
-      <input type="text" v-model="newTodoItem" v-on:keyup.enter="addTodo">
-      <span class="addContainer" v-on:click="addTodo">
+      <input 
+      type="text"
+      placeholder="got something to do?" 
+      v-model="newTodoItem" 
+      @keyup.enter="addTodo">
+      <span class="addContainer" @click="addTodo">
           <i class="fas fa-plus addBtn"></i>
       </span>
       <Modal v-if="showModal" @close="showModal = false">
@@ -15,7 +19,7 @@
 import Modal from './common/Modal.vue';
 
 export default {
-    data: function() {
+    data() {
         return {
             newTodoItem: "",
             showModal: false
